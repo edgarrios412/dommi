@@ -45,7 +45,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { ArrowDownToLine, CalendarDays, History, LogOut, QrCode, ShoppingBasket, Ticket, Trophy, User } from "lucide-react"
+import { ArrowDownToLine, CalendarDays, History, LogOut, QrCode, ShoppingBasket, ShoppingCart, Ticket, Trophy, User } from "lucide-react"
 import { DownloadTableExcel } from "react-export-table-to-excel"
 import { UserContext } from "../context/UserContext"
 import axios from "axios"
@@ -104,6 +104,7 @@ const NavBar = () => {
                             </SheetDescription>
                         </SheetHeader>
                         <div className="flex flex-col gap-5 mt-6 max-h-80 min-h-80 overflow-auto mb-10">
+                            {!carrito.length && <h3 className="text-gray-500 flex items-center"><ShoppingCart className="w-4 h-4 mr-2"/> El carrito está vacío</h3>}
                             {carrito.map(c => 
                             <div className="flex gap-2 justify-between items-center">
                                 <div className="flex gap-2 items-center">
