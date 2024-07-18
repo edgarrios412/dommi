@@ -59,16 +59,16 @@ const Inicio = () => {
                         {/* <img src={webdev} className="absolute"/> */}
                     </motion.div>
                 </div>
-                <div id="sorteos" className="text-center flex items-center justify-evenly min-h-[100vh] h-fit bg-slate-50 dark:bg-[#14141A] mt-0 pb-20">
+                <div id="sorteos" className="text-center flex items-center justify-evenly min-h-[100vh] h-fit bg-slate-50 dark:bg-[#14141A] mt-10 pb-20">
                     <div>
-                        <h1 className="text-[30px] sm:text-[35px] lg:text-[50px] mb-20 font-extrabold">Tiendas aliadas</h1>
+                        <h1 className="text-[30px] sm:text-[35px] lg:text-[50px] my-10 font-extrabold">Tiendas aliadas</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
                             {tiendas.map(tienda => 
-                            <div className="flex items-center w-80 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900 pb-4">
-                            <div className="rounded-lg w-28 h-28 overflow-hidden">
+                            <div role="button" onClick={() => navigation(`/tienda/${tienda.id}`)} className="flex items-center w-80 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900">
+                            <div className="rounded-lg m-4 w-28 h-28 overflow-hidden">
                                     <img src={tienda.imagen} alt="Imagen" className="object-cover h-full" />
                                 </div>
-                                <div className="text-left px-6">
+                                <div className="text-left px-2">
                                     <h2 className="font-bold text-lg my-2">{tienda.nombre}</h2>
                                     {/* <p className="text-slate-500 mb-2">El mejor pollo de la ciudad</p> */}
                                     <div className="flex">

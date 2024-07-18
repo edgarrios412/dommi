@@ -47,10 +47,10 @@ const Footer = () => {
                     <p className="text-muted-foreground">Apartado en construcción estará disponible en breve</p>
                 </DialogContent>
             </Dialog> */}
-            <Dialog open={politicas} onOpenChange={setPoliticas}>
+            {/* <Dialog open={politicas} onOpenChange={setPoliticas}>
                 <DialogContent className="max-h-full overflow-y-scroll">
                     <DialogHeader>
-                        <DialogTitle>Políticas de Uso de RIFAVO</DialogTitle>
+                        <DialogTitle>Políticas de Uso de DOMMI</DialogTitle>
                     </DialogHeader>
                     <b>1. Introducción</b>
                     Bienvenido a RIFAVO, tu plataforma de sorteos y rifas en línea. Estas políticas de uso están diseñadas para garantizar una experiencia justa, segura y transparente para todos nuestros usuarios. Al utilizar nuestra plataforma, aceptas cumplir con estas políticas y cualquier actualización futura que realicemos.
@@ -91,17 +91,17 @@ const Footer = () => {
                         <Button onClick={() => setPoliticas(false)}>Cerrar</Button>
                     </DialogFooter>
                 </DialogContent>
-            </Dialog>
+            </Dialog> */}
             <Dialog open={dialog} onOpenChange={setDialog}>
                 <DialogContent>
                     <DialogHeader>
                         <DialogTitle>Solicitar soporte</DialogTitle>
                     </DialogHeader>
-                    <p>Si necesitas ayuda tenemos habilitado una línea de atención al usuario a través de nuestro correo eléctronico <b>atencionalcliente@rifavo.com</b><br></br><br></br>Contáctanos e indicanos en qué podemos ayudarte</p>
+                    <p>Si necesitas ayuda tenemos habilitado una línea de atención al usuario a través de nuestro correo eléctronico <b>edgarrios412@gmail.com</b><br></br><br></br>Contáctanos e indicanos en qué podemos ayudarte</p>
                 </DialogContent>
             </Dialog>
             <footer>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-20 justify-center px-20 py-10 mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-20 justify-center px-20 py-10 mx-auto">
                     <a href="/" className="relative">
                         <div className="absolute visible dark:invisible h-full w-32 sm:w-40 flex items-center">
                             <Rifavo />
@@ -110,7 +110,7 @@ const Footer = () => {
                             <RifavoLight />
                         </div>
                     </a>
-                    <div className="">
+                    {/* <div className="">
                         <p className="font-bold">Redes sociales</p>
                         <div className="flex gap-5 mt-3">
                             <a href="https://web.facebook.com/profile.php?id=61560852461961" target="_blank">
@@ -119,9 +119,6 @@ const Footer = () => {
                             <a href="https://www.instagram.com/sorteos_rifavo/" target="_blank">
                                 <Instagram />
                             </a>
-                            {/* <a target="_blank">
-                            <Twitter />
-                        </a> */}
                         </div>
                         <p className="text-slate-500 text-sm mt-4 w-56">Subimos noticias y cosas importantes de la plataforma en nuestras redes sociales</p>
                     </div>
@@ -183,14 +180,8 @@ const Footer = () => {
                                     </div>
                                 </SheetContent>
                             </Sheet>
-                            {/* <a target="_blank">
-                                <p onClick={() => setPremios(true)} className="hover:underline cursor-pointer text-slate-700">Reclamar premios</p>
-                            </a> */}
-                            <a target="_blank">
-                                <p onClick={() => setPoliticas(true)} className="hover:underline cursor-pointer text-slate-700 dark:text-slate-400">Politicas</p>
-                            </a>
                         </div>
-                    </div>
+                    </div> */}
                     <div>
                         <p className="font-bold">Soporte</p>
                         <div className="flex flex-col gap-4 mt-3">
@@ -207,7 +198,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="px-20 mb-10">
-                    <p className="text-slate-500 text-sm flex gap-1 items-center"><Copyright className="w-4 h-4" /> Todos los derechos reservados por RIFAVO</p>
+                    <p className="text-slate-500 text-sm flex gap-1 items-center"><Copyright className="w-4 h-4" /> Todos los derechos reservados por DOMMI</p>
                 </div>
             </footer>
         </>)
