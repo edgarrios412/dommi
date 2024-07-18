@@ -122,7 +122,7 @@ const NavBar = () => {
                         {carrito.length > 0 && <div>
                             <Button onClick={() => vaciarCarrito()} className="my-2 w-full bg-red-500 text-white hover:bg-red-400">Vaciar carrito</Button>
                             <h2 className="font-bold text-lg">Total: ${carrito.reduce((acc, curr) => acc + (curr.precio * curr.cantidad), 0)} <span className="text-sm text-gray-600 font-normal"> ≈ {Math.ceil(carrito.reduce((acc, curr) => acc + (curr.precio * curr.cantidad), 0) * precioDolar)} bs</span></h2>
-                            <a href={`https://api.whatsapp.com/send/?phone=573212775648&text=*Detalles del pedido*%0A${carrito.reduce((acc, curr) => acc+`*${curr.nombreTienda}* - ${curr.nombre} x${curr.cantidad}%0A`,"")}%0A *Total a pagar: $${carrito.reduce((acc, curr) => acc + (curr.precio * curr.cantidad), 0)}*  ≈ ${Math.ceil(carrito.reduce((acc, curr) => acc + (curr.precio * curr.cantidad), 0) * precioDolar)} bs`} target="_blank"><Button className="mt-2 w-full">Hacer pedido</Button></a>
+                            <a href={`https://api.whatsapp.com/send/?phone=573118268264&text=*Detalles del pedido*%0A${carrito.reduce((acc, curr) => acc+`*${curr.nombreTienda}* - ${curr.nombre} x${curr.cantidad}%0A`,"")}%0A *Total a pagar: $${carrito.reduce((acc, curr) => acc + (curr.precio * curr.cantidad), 0)}*  ≈ ${Math.ceil(carrito.reduce((acc, curr) => acc + (curr.precio * curr.cantidad), 0) * precioDolar)} bs`} target="_blank"><Button className="mt-2 w-full">Hacer pedido</Button></a>
                         </div>}
                     </SheetContent>
                 </Sheet>
