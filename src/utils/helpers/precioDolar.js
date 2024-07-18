@@ -1,0 +1,1 @@
+export const precioDolar = 36.5
