@@ -30,7 +30,7 @@ const TiendaDetail = () => {
     const [tienda, setTienda] = useState()
     const navigate = useNavigate()
 
-    const {carrito, setCarrito, agregarCarrito, quitarDelCarrito} = useContext(CarritoContext)
+    const { carrito, setCarrito, agregarCarrito, quitarDelCarrito } = useContext(CarritoContext)
 
     useEffect(() => {
         setTienda(tiendas.find(t => t.id == id))
@@ -38,7 +38,7 @@ const TiendaDetail = () => {
 
     useEffect(() => {
         // console.log(carrito)
-    },[carrito])
+    }, [carrito])
 
     const [color, setColor] = useState("#ffffff")
 
@@ -54,31 +54,33 @@ const TiendaDetail = () => {
                     </div>
                 </div>
             </div>
-            <div id="sorteos" className="justify-evenly min-h-[100vh] h-fit bg-slate-50 dark:bg-[#14141A] mt-0 p-10">
+            <div id="sorteos" className="justify-evenly min-h-[100vh] h-fit bg-slate-50 dark:bg-[#14141A] mt-0 py-10 px-2">
                 <div>
+                    <div className="flex items-center justify-center flex-col">
                     <h1 className="text-[30px] sm:text-[35px] lg:text-[50px] mb-10 font-extrabold flex items-center"><Package className="mr-4" />Productos</h1>
-                    <div className="grid grid-cols-1 min-[440px]:grid-cols-2 items-center sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
-                        {!tienda?.productos?.length && <h3 className="text-xl text-gray-400 w-full">Este negocio aún no tiene productos</h3>}
-                        {tienda?.productos?.map(p =>
-                            <div className="flex-col items-center max-w-40 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900 pb-4">
-                                <div className="rounded-lg w-28 h-28 overflow-hidden m-auto">
-                                    <img src={p.imagen} alt="Imagen" className="object-cover h-full m-auto" />
-                                </div>
-                                <div className="text-left px-6">
-                                    <h2 className="font-bold text-lg my-1">${p.precio} <span className="text-sm text-gray-600 font-normal"> ≈ {Math.ceil(p.precio * precioDolar)} bs</span></h2>
-                                    {/* <p className="text-slate-500 mb-2">El mejor pollo de la ciudad</p> */}
-                                    <div className="flex">
-                                        {/* <Timer className="w-4 h-4 text-slate-500 mr-1" /> */}
-                                        <p className="text-sm mb-4">{p.nombre}</p>
+                        <div className="grid justify-center grid-cols-1 min-[440px]:grid-cols-2 items-center sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+                            {!tienda?.productos?.length && <h3 className="text-xl text-gray-400 w-full">Este negocio aún no tiene productos</h3>}
+                            {tienda?.productos?.map(p =>
+                                <div className="flex-col items-center max-w-40 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900 pb-4">
+                                    <div className="rounded-lg w-28 h-28 overflow-hidden m-auto">
+                                        <img src={p.imagen} alt="Imagen" className="object-cover h-full m-auto" />
                                     </div>
-                                    <div className="flex gap-2 items-center">
-                                        <Button className="h-5 w-3" onClick={() => quitarDelCarrito({productoId:p.id, tiendaId:id})}>-</Button>
-                                        <p className="font-bold">{carrito.find(c => c.tiendaId == id && c.productoId == p.id)?.cantidad ?? 0}</p>
-                                        <Button className="h-5 w-3" onClick={() => agregarCarrito({productoId:p.id, tiendaId:id, cantidad:1, imagen:p.imagen, precio:p.precio, nombre: p.nombre})}>+</Button>
+                                    <div className="text-left px-6">
+                                        <h2 className="font-bold text-lg my-1">${p.precio} <span className="text-sm text-gray-600 font-normal"> ≈ {Math.ceil(p.precio * precioDolar)} bs</span></h2>
+                                        {/* <p className="text-slate-500 mb-2">El mejor pollo de la ciudad</p> */}
+                                        <div className="flex">
+                                            {/* <Timer className="w-4 h-4 text-slate-500 mr-1" /> */}
+                                            <p className="text-sm mb-4">{p.nombre}</p>
+                                        </div>
+                                        <div className="flex gap-2 items-center">
+                                            <Button className="h-5 w-3" onClick={() => quitarDelCarrito({ productoId: p.id, tiendaId: id })}>-</Button>
+                                            <p className="font-bold">{carrito.find(c => c.tiendaId == id && c.productoId == p.id)?.cantidad ?? 0}</p>
+                                            <Button className="h-5 w-3" onClick={() => agregarCarrito({ productoId: p.id, tiendaId: id, cantidad: 1, imagen: p.imagen, precio: p.precio, nombre: p.nombre })}>+</Button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
