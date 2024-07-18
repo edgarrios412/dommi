@@ -58,7 +58,7 @@ const TiendaDetail = () => {
                 <div>
                     <div className="flex items-center justify-center flex-col">
                     <h1 className="text-[30px] sm:text-[35px] lg:text-[50px] mb-10 font-extrabold flex items-center"><Package className="mr-4" />Productos</h1>
-                        <div className="grid justify-center grid-cols-1 min-[440px]:grid-cols-2 items-center sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
+                        <div className="grid justify-center grid-cols-2 min-[440px]:grid-cols-2 items-center sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
                             {!tienda?.productos?.length && <h3 className="text-xl text-gray-400 w-full">Este negocio aún no tiene productos</h3>}
                             {tienda?.productos?.map(p =>
                                 <div className="flex-col items-center max-w-40 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900 pb-4">
