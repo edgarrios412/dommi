@@ -7,15 +7,16 @@ import { UserContext } from "./components/context/UserContext";
 import Footer from "./components/layout/Footer";
 import Apertura from "./pages/Apertura";
 import TiendaDetail from "./pages/TiendaDetail";
+import { CarritoContext } from "./components/context/CarritoContext";
 
 function App() {
 
-  const { updateUsuario } = useContext(UserContext)
+  const {cargarCarrito} = useContext(CarritoContext)
 
   const location = useLocation()
 
   useEffect(() => {
-    updateUsuario()
+    cargarCarrito()
   }, [])
 
   return (

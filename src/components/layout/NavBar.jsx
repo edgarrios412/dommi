@@ -93,10 +93,10 @@ const NavBar = () => {
                 </div>
                 <Sheet>
                     <SheetTrigger className="relative inline-flex items-center">
-                        <ShoppingBasket className="w-10 h-10 -y-10" />
-                        <Badge className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-6 -end-2 dark:border-gray-900" variant="destructive">{carrito.length}</Badge>
+                        <ShoppingBasket className="w-8 h-8 sm:w-10 sm:h-10 -y-10" />
+                        <Badge className="absolute inline-flex items-center justify-center h-5 w-5 sm:w-6 sm:h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-5 -end-1 sm:top-6 sm:-end-2 dark:border-gray-900" variant="destructive">{carrito.length}</Badge>
                     </SheetTrigger>
-                    <SheetContent>
+                    <SheetContent className="w-full sm:w-full">
                         <SheetHeader>
                             <SheetTitle>Carrito de compras</SheetTitle>
                             <SheetDescription>

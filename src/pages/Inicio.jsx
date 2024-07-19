@@ -62,7 +62,7 @@ const Inicio = () => {
                 <div id="sorteos" className="text-center flex items-center justify-evenly min-h-[100vh] h-fit bg-slate-50 dark:bg-[#14141A] mt-10 pb-20">
                     <div>
                         <h1 className="text-[30px] sm:text-[35px] lg:text-[50px] my-10 font-extrabold">Tiendas aliadas</h1>
-                        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10">
                             {tiendas.map(tienda => 
                             <div role="button" onClick={() => navigation(`/tienda/${tienda.id}`)} className="flex items-center w-80 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900">
                             <div className="rounded-lg m-4 w-28 h-28 overflow-hidden">

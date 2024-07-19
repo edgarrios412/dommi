@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CarritoContext } from "./CarritoContext"
 import { tiendas } from "@/DB";
 
@@ -11,6 +11,15 @@ export const CarritoProvider = ({ children }) => {
     //     axios.get("/user/token/"+token)
     //     .then(({data}) => setUsuario(data))
     // }
+
+    useEffect(() => {
+        localStorage.setItem("carrito",JSON.stringify(carrito))
+    },[carrito])
+
+    const cargarCarrito = () => {
+        const carritoExtraido = localStorage.getItem("carrito")
+        setCarrito(JSON.parse(carritoExtraido))
+    }
 
     const agregarCarrito = (producto) => {
         const nombreTienda = tiendas.find(t => t.id == producto.tiendaId).nombre
@@ -41,7 +50,7 @@ export const CarritoProvider = ({ children }) => {
     }
 
     return (
-        <CarritoContext.Provider value={{ carrito, setCarrito, agregarCarrito, quitarDelCarrito }}>
+        <CarritoContext.Provider value={{ carrito, setCarrito, agregarCarrito, quitarDelCarrito, cargarCarrito}}>
             {children}
         </CarritoContext.Provider>
     )
