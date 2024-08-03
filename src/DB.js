@@ -4,6 +4,7 @@ export const tiendas = [
     imagen: "/tiendas/0/logo.png",
     nombre: "Doritos",
     estimado: 15,
+    coordenadas:[0,0],
     productos: [
       {
         id: 0,
@@ -30,6 +31,7 @@ export const tiendas = [
     imagen: "/tiendas/1/logo.jpg",
     nombre: "Frisby",
     estimado: 15,
+    coordenadas:[0,0],
     productos: [
       {
         id: 0,
@@ -44,6 +46,7 @@ export const tiendas = [
     imagen: "/tiendas/2/logo.jpg",
     nombre: "Pa que tatalo",
     estimado: 10,
+    coordenadas:[10.135435,-71.2535753],
     productos: [],
   }
 ];

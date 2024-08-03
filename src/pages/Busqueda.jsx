@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { tiendas } from "@/DB";
 import { CarritoContext } from "@/components/context/CarritoContext";
 import { useContext, useEffect, useState } from "react";
@@ -9,6 +9,7 @@ import { Frown, Timer } from "lucide-react";
 const Busqueda = () => {
     const { busqueda } = useParams()
     const [tiendasFiltradas, setTiendasFiltradas] = useState([])
+    const navigate = useNavigate()
 
     const { carrito, setCarrito, agregarCarrito, quitarDelCarrito } = useContext(CarritoContext)
 
@@ -22,12 +23,12 @@ const Busqueda = () => {
 
     return (
         <>
-            <div className="px-5 sm:px-20 lg:px-20 text-start flex flex-col pt-24 py-0 lg:py-28 lg:flex-row min-h-[100vh]">
+            <div className="px-5 sm:px-20 lg:px-20 text-start flex flex-col pt-24 py-0 lg:py-28 lg:flex-col min-h-[100vh]">
                     {!tiendasFiltradas.length ? <div className="flex flex-col w-full items-center justify-center gap-4"><Frown/><h3 className="text-base text-gray-400">No hemos conseguido resultados</h3></div>:
                     <p className="text-gray-400">Hemos encontrado {tiendasFiltradas.reduce((acc,curr) => acc+curr.productos.filter(p => p.nombre.toLowerCase().includes(busqueda.toLowerCase())).length ,0)} producto(s)</p>}
                 <div className="flex flex-col gap-10">
                     {tiendasFiltradas?.map(tienda => <div>
-                        <div className="flex items-center">
+                        <div onClick={() => navigate("/tienda/"+tienda.id)} className="flex cursor-pointer items-center">
                             <div className="rounded-lg my-4 w-16 h-16 overflow-hidden">
                                 <img src={tienda.imagen} alt="Imagen" className="object-cover h-full" />
                             </div>
