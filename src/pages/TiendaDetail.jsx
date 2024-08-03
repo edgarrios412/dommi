@@ -69,6 +69,23 @@ const TiendaDetail = () => {
         });
     };
 
+    const [position, setPosition] = useState(null);
+
+    useEffect(() => {
+        const onSuccess = (position) => {
+            setPosition({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            });
+        };
+
+        const onError = (error) => {
+            console.error('Error al obtener la ubicación:', error);
+        };
+
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }, []);
+
     return (
         <>
             <div style={{ backgroundColor: color }} className={`bg-[${color}] pt-20`}>
@@ -91,19 +108,19 @@ const TiendaDetail = () => {
                     <SheetContent className="w-full sm:w-full">
                         {/* <p>Hola</p> */}
                         {/* <div className="bg-red-600 w-full h-full"> */}
-                            <MapContainer center={tienda?.coordenadas} zoom={14}>
-                                {/* OPEN STREEN MAPS TILES */}
-                                <TileLayer
-                                    // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                />
-                                {/* WATERCOLOR CUSTOM TILES */}
-                                {/* <TileLayer
+                        <MapContainer center={tienda?.coordenadas} zoom={14}>
+                            {/* OPEN STREEN MAPS TILES */}
+                            <TileLayer
+                                // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+                            {/* WATERCOLOR CUSTOM TILES */}
+                            {/* <TileLayer
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
       /> */}
-                                {/* GOOGLE MAPS TILES */}
-                                {/* <TileLayer
+                            {/* GOOGLE MAPS TILES */}
+                            {/* <TileLayer
         attribution="Google Maps"
         // url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}" // regular
         // url="http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}" // satellite
@@ -112,18 +129,21 @@ const TiendaDetail = () => {
         subdomains={["mt0", "mt1", "mt2", "mt3"]}
       /> */}
 
-                                <MarkerClusterGroup
-                                    chunkedLoading
-                                    iconCreateFunction={createClusterCustomIcon}
-                                >
-                                    {/* Mapping through the markers */}
-                                    {markers.map((marker) => (
-                                        <Marker position={marker.geocode} icon={customIcon}>
-                                            <Popup>{marker.popUp}</Popup>
-                                        </Marker>
-                                    ))}
-                                </MarkerClusterGroup>
-                            </MapContainer>
+                            <MarkerClusterGroup
+                                chunkedLoading
+                                iconCreateFunction={createClusterCustomIcon}
+                            >
+                                {/* Mapping through the markers */}
+                                {markers.map((marker) => (
+                                    <Marker position={marker.geocode} icon={customIcon}>
+                                        <Popup>{marker.popUp}</Popup>
+                                    </Marker>
+                                ))}
+                            </MarkerClusterGroup>
+                            <Marker position={[position?.latitude, position?.longitude]} icon={customIcon}>
+                                <Popup>Mi ubicación</Popup>
+                            </Marker>
+                        </MapContainer>
                         {/* </div> */}
                     </SheetContent>
                 </Sheet>
