@@ -2,7 +2,7 @@ import React from 'react';
 
 const RifavoLogo = () => {
   return (
-    <svg viewBox="0 0 72 72" preserveAspectRatio="xMidYMid meet" class="css-8aabad" id="afgggcdf">
+    <svg viewBox="0 0 72 72" preserveAspectRatio="xMidYMid meet" className="css-8aabad" id="afgggcdf">
       <defs id="SvgjsDefs5255"></defs>
       <g id="SvgjsG5256" featurekey="symbolContainer" transform="matrix(0.9,0,0,0.9,0,0)" fill="#ff7844">
         <rect width="77" height="80" rx="8"></rect>

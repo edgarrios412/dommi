@@ -9,8 +9,8 @@ const Apertura = () => {
 
     return (
         <div className="flex items-center justify-center sm:h-[100vh] overflow-x-hidden relative">
-            <div class="orange-blur"></div>
-            <div class="orange-blur2 invisible lg:visible"></div>
+            <div className="orange-blur"></div>
+            <div className="orange-blur2 invisible lg:visible"></div>
             {/* <div class="orange-blur3"></div> */}
             <div className="flex flex-col justify-center px-8 sm:px-0 py-4 w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[40%]">
                 <div className="relative">

@@ -1,26 +1,9 @@
-import { UserContext } from "@/components/context/UserContext"
-import Carrusel from "@/components/layout/Carrusel"
-import NavBar from "@/components/layout/NavBar"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Progress } from "@/components/ui/progress"
-import { Separator } from "@/components/ui/separator"
-import { toast } from "@/components/ui/use-toast"
-import axios from "axios"
-import ani1 from '../../public/animations/empty.json';
-import winner from '../../public/animations/winner.json';
 import { ArrowLeft, CalendarDays, CheckCircle2, ChevronLeft, CreditCard, MapPin, Package, Ticket, Timer, Trophy } from "lucide-react"
 import { useContext, useEffect, useState } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
-import Lottie from "lottie-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { ColorExtractor } from "react-color-extractor"
-// import neg4 from "../../public/neg4.png"
-// import neg1 from "../../public/neg1.jpg"
-import p1 from "../../public/p1.jpg"
-import p2 from "../../public/p2.jpg"
-import p3 from "../../public/p3.jpg"
 import { tiendas } from "@/DB"
 import { precioDolar } from "@/utils/helpers/precioDolar"
 import { CarritoContext } from "@/components/context/CarritoContext"
@@ -63,7 +46,7 @@ const TiendaDetail = () => {
 
     const createClusterCustomIcon = function (cluster) {
         return new divIcon({
-            html: `<span class="cluster-icon">${cluster.getChildCount()}</span>`,
+            html: `<span className="cluster-icon">${cluster.getChildCount()}</span>`,
             className: "custom-marker-cluster",
             iconSize: point(33, 33, true)
         });

@@ -6,11 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowDownToLine, BookUser, Bot, Brain, BrainCircuit, Brush, CalendarDays, CheckCircle2, Database, Dices, Fingerprint, Folder, Gift, HelpCircle, Linkedin, Mail, Search, Server, Ticket, TicketCheck, Timer } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import Lottie from 'lottie-react';
-import domicilio from '../../public/animations/domicilio.json';
-// import neg1 from "../../public/neg1.jpg"
-// import neg2 from "../../public/neg2.jpg"
-// import neg3 from "../../public/neg3.png"
-// import neg4 from "../../public/neg4.png"
+import domicilio from '../assets/animations/domicilio.json';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { tiendas } from "@/DB";
@@ -63,8 +59,8 @@ const Inicio = () => {
                     <div>
                         <h1 className="text-[30px] sm:text-[35px] lg:text-[50px] my-10 font-extrabold">Tiendas aliadas</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10">
-                            {tiendas.map(tienda => 
-                            <div role="button" onClick={() => navigation(`/tienda/${tienda.id}`)} className="flex items-center w-80 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900">
+                            {tiendas.map((tienda, i)=> 
+                            <div key={i} role="button" onClick={() => navigation(`/tienda/${tienda.id}`)} className="flex items-center w-80 lg:w-96 rounded-lg shadow-md bg-white dark:bg-[#262635] shadow-slate-200 dark:shadow-gray-900">
                             <div className="rounded-lg m-4 w-28 h-28 overflow-hidden">
                                     <img src={tienda.imagen} alt="Imagen" className="object-cover h-full" />
                                 </div>

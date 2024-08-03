@@ -70,7 +70,7 @@ const BotAyudante = () => {
                     <div className="h-10 w-10">
                         <RifavoLogo />
                     </div>
-                    <p className="bg-gray-100 h-10 px-4 py-2 rounded-lg w-20 flex justify-center items-center"><div class="loader"></div></p>
+                    <p className="bg-gray-100 h-10 px-4 py-2 rounded-lg w-20 flex justify-center items-center"><div className="loader"></div></p>
                 </div>}
             </div>
             <input onKeyDown={(e) => e.key === 'Enter' && preguntarAEdgar()} placeholder="Haz cualquier pregunta" className="border border-slate-200 rounded-sm px-4 py-2" value={msg} onChange={(e) => setMsg(e.target.value)} type="text" />
