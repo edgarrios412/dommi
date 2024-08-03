@@ -8,6 +8,7 @@ import Footer from "./components/layout/Footer";
 import Apertura from "./pages/Apertura";
 import TiendaDetail from "./pages/TiendaDetail";
 import { CarritoContext } from "./components/context/CarritoContext";
+import Busqueda from "./pages/Busqueda";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Inicio />} />
+        <Route path="/buscar/:busqueda" element={<Busqueda />} />
         <Route path="/tienda/:id" element={<TiendaDetail />} />
       </Routes>
       <Footer/>

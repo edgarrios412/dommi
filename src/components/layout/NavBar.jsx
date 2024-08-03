@@ -63,18 +63,39 @@ import p2 from "../../../public/p2.jpg"
 import p3 from "../../../public/p3.jpg"
 import { CarritoContext } from "../context/CarritoContext"
 import { precioDolar } from "@/utils/helpers/precioDolar"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const NavBar = () => {
-
+    const [busqueda, setBusqueda] = useState("")
     const { carrito, setCarrito, quitarDelCarrito } = useContext(CarritoContext)
+    const navigate = useNavigate()
+    const location = useLocation()
 
     const vaciarCarrito = () => {
         setCarrito([])
     }
 
+    const buscarProducto = (e) => {
+        const busqueda = e.target.value
+        setBusqueda(e.target.value)
+        if(busqueda.length >= 1){
+            // alert(busqueda)
+            return navigate("/buscar/"+busqueda)
+        }else{
+            return navigate("/")
+        }
+    }
+
+    useEffect(() => {
+        if(location.pathname.includes("/buscar/")){
+            const palabra = location.pathname.split("/buscar/")[1]
+            setBusqueda(palabra.includes("%20") ? palabra.replace("%20"," ") : palabra)
+        }
+    },[])
+
     return (
         <>
-            <div className="fixed w-full h-20 flex items-center px-10 lg:px-40 justify-between bg-white dark:bg-[#262635] bg-opacity-95 z-10">
+            <div className="fixed w-full h-20 flex items-center px-4 lg:px-20 justify-between bg-white dark:bg-[#262635] bg-opacity-95 z-10">
                 <div className="relative flex">
                     <a href="/" className="relative">
                         <div className="absolute invisible sm:visible dark:invisible h-full w-32 sm:w-40 flex items-center">
@@ -87,12 +108,12 @@ const NavBar = () => {
                     <div className="sm:relative sm:left-52">
                         <ModeToggle />
                     </div>
-                    {/* <div className="sm:relative sm:left-52 ml-2">
-                        <Input onChange={handleForm} name="email" value={form?.email} placeholder="Buscar productos" />
-                    </div> */}
+                    <div className="sm:relative sm:left-52 ml-2">
+                        <Input onChange={buscarProducto} value={busqueda} name="email" placeholder="Buscar productos" />
+                    </div>
                 </div>
                 <Sheet>
-                    <SheetTrigger className="relative inline-flex items-center">
+                    <SheetTrigger className="ml-2 relative inline-flex items-center">
                         <ShoppingBasket className="w-8 h-8 sm:w-10 sm:h-10 -y-10" />
                         <Badge className="absolute inline-flex items-center justify-center h-5 w-5 sm:w-6 sm:h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-5 -end-1 sm:top-6 sm:-end-2 dark:border-gray-900" variant="destructive">{carrito.length}</Badge>
                     </SheetTrigger>
